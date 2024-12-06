@@ -1,0 +1,53 @@
+{
+  "name": "axios-throttle-interceptor",
+  "version": "0.0.0",
+  "description": "A simple and lightweight axios interceptor to throttle requests",
+  "keywords": [
+    "axios",
+    "throttle",
+    "interceptor",
+    "rate-limiting"
+  ],
+  "homepage": "https://github.com/shahradelahi/axios-throttle-interceptor#readme",
+  "repository": "github:shahradelahi/axios-throttle-interceptor",
+  "license": "MIT",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.d.cts"
+  ],
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm lint && pnpm format:check && pnpm build",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@shahrad/prettier-config",
+  "devDependencies": {
+    "@shahrad/eslint-config": "^1.0.0",
+    "@shahrad/prettier-config": "^1.1.0",
+    "@sindresorhus/tsconfig": "^7.0.0",
+    "axios": "^1.7.9",
+    "eslint": "^9.16.0",
+    "p-throttle": "^7.0.0",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "axios": ">=1.0.0"
+  },
+  "packageManager": "pnpm@9.14.4"
+}
