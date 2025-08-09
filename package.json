@@ -38,7 +38,7 @@
   "devDependencies": {
     "@shahrad/eslint-config": "^1.0.0",
     "@shahrad/prettier-config": "^1.1.0",
-    "@sindresorhus/tsconfig": "^7.0.0",
+    "@sindresorhus/tsconfig": "^8.0.0",
     "axios": "^1.7.9",
     "eslint": "^9.16.0",
     "p-throttle": "^7.0.0",
