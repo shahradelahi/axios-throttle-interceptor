@@ -24,23 +24,23 @@ export interface AxiosThrottleOptions {
 }
 
 /**
- *  Adds a throttling mechanism to an Axios instance by intercepting requests and
- *  applying rate-limiting rules. Useful for controlling the number of requests sent
- *  to a server over a specific time interval.
- *
- *  @example
- *  import axios from 'axios';
- *  import axiosThrottle from 'axios-throttle-interceptor';
- *
- *  const instance = axios.create();
- *
- *  axiosThrottle(instance, {
- *    limit: 5,
- *    interval: 1000,
- *    onDelay: () => console.log('Request delayed due to throttling.')
- *  });
- *
- *  instance.get('/example'); // The requests are now throttled.
+ Adds a throttling mechanism to an Axios instance by intercepting requests and
+ applying rate-limiting rules. Useful for controlling the number of requests sent
+ to a server over a specific time interval.
+
+ @example
+ import axios from 'axios';
+ import axiosThrottle from 'axios-throttle-interceptor';
+
+ const instance = axios.create();
+
+ axiosThrottle(instance, {
+   limit: 5,
+   interval: 1000,
+   onDelay: () => console.log('Request delayed due to throttling.')
+ });
+
+ instance.get('/example'); // The requests are now throttled.
  */
 export function axiosThrottle(instance: AxiosInstance, options: AxiosThrottleOptions) {
   const throttle = pThrottle(options);
