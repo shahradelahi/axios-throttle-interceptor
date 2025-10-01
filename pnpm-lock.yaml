@@ -14,9 +14,9 @@ importers:
       '@shahrad/prettier-config':
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.4.2)
-      '@sindresorhus/tsconfig':
-        specifier: ^7.0.0
-        version: 7.0.0
+      '@shahrad/tsconfig':
+        specifier: ^1.2.0
+        version: 1.2.0
       axios:
         specifier: ^1.7.9
         version: 1.7.9
@@ -571,8 +571,8 @@ packages:
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@sindresorhus/tsconfig@7.0.0':
-    resolution: {integrity: sha512-i5K04hLAP44Af16zmDjG07E1NHuDgCM07SJAT4gY0LZSRrWYzwt4qkLem6TIbIVh0k51RkN2bF+lP+lM5eC9fw==}
+  '@shahrad/tsconfig@1.2.0':
+    resolution: {integrity: sha512-5NM7tPrvUGF+VPqNgsjgWJ5aLJBcNiM/7aAsXw3PEZVek4Mfxq4vd7BLbjUsYd9HizgaNeCmfK5kIsxtCXp7/Q==}
     engines: {node: '>=18'}
 
   '@types/estree@1.0.6':
@@ -1754,7 +1754,7 @@ snapshots:
       - '@vue/compiler-sfc'
       - supports-color
 
-  '@sindresorhus/tsconfig@7.0.0': {}
+  '@shahrad/tsconfig@1.2.0': {}
 
   '@types/estree@1.0.6': {}
 
