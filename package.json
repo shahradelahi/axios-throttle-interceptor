@@ -31,20 +31,24 @@
     "format:check": "prettier --check .",
     "lint": "pnpm typecheck && eslint .",
     "lint:fix": "eslint --fix .",
-    "prepublishOnly": "pnpm lint && pnpm format:check && pnpm build",
+    "prepublishOnly": "pnpm build && pnpm lint && pnpm format:check && pnpm test",
+    "test": "vitest --run",
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@shahrad/prettier-config",
+  "dependencies": {
+    "@se-oss/throttle": "^1.0.0"
+  },
   "devDependencies": {
     "@shahrad/eslint-config": "^1.0.1",
     "@shahrad/prettier-config": "^1.2.2",
     "@shahrad/tsconfig": "^1.2.0",
     "axios": "^1.12.2",
     "eslint": "^9.36.0",
-    "p-throttle": "^8.0.0",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "axios": ">=1.0.0"
