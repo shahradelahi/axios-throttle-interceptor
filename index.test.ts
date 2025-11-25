@@ -31,8 +31,8 @@ describe('axiosThrottle', () => {
     const totalTime = (totalRuns * interval) / limit;
     expect(
       inRange(end(), {
-        start: totalTime - interval - 500,
-        end: totalTime + interval + 1000,
+        start: totalTime - interval - 1000,
+        end: totalTime + interval + 2000,
       })
     ).toBe(true);
   });

@@ -54,4 +54,4 @@ Thanks again for your support, it is much appreciated! 🙏
 
 ## License
 
-[MIT](/LICENSE) © [Shahrad Elahi](https://github.com/shahradelahi) and [contributors](https://github.com/shahradelahi/lru/graphs/contributors).
+[MIT](/LICENSE) © [Shahrad Elahi](https://github.com/shahradelahi) and [contributors](https://github.com/shahradelahi/axios-throttle-interceptor/graphs/contributors).
