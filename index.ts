@@ -1,5 +1,5 @@
-import type { AxiosInstance } from 'axios';
-import pThrottle from 'p-throttle';
+import { throttle } from '@se-oss/throttle';
+import type { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 export interface AxiosThrottleOptions {
   /**
@@ -11,6 +11,15 @@ export interface AxiosThrottleOptions {
    */
   readonly interval: number;
   /**
+   Use a strict, more resource-intensive, throttling algorithm.
+   The default algorithm uses a windowed approach that will work correctly in most cases,
+   limiting the total number of calls at the specified limit per interval window.
+   The strict algorithm throttles each call individually, ensuring the limit is not exceeded for any interval.
+
+   @default false
+   */
+  readonly strict?: boolean;
+  /**
    Abort pending executions. When aborted, all unresolved promises are rejected with `signal.reason`.
    */
   signal?: AbortSignal;
@@ -21,6 +30,16 @@ export interface AxiosThrottleOptions {
    Can be useful for monitoring the throttling efficiency.
    */
   readonly onDelay?: (...arguments_: readonly any[]) => void;
+  /**
+   Calculate the weight/cost of each function call based on its arguments.
+
+   The weight determines how much of the `limit` is consumed by each call.
+   This is useful for rate limiting APIs that use point-based or cost-based limits,
+   where different operations consume different amounts of the quota.
+
+   By default, each call has a weight of `1`.
+   */
+  readonly weight?: (...arguments_: readonly any[]) => number;
 }
 
 /**
@@ -43,9 +62,7 @@ export interface AxiosThrottleOptions {
  instance.get('/example'); // The requests are now throttled.
  */
 export function axiosThrottle(instance: AxiosInstance, options: AxiosThrottleOptions) {
-  const throttle = pThrottle(options);
-
-  const throttled = throttle((config: any) => config);
+  const throttled = throttle((config: InternalAxiosRequestConfig) => config, options);
 
   instance.interceptors.request.use(throttled);
 }
